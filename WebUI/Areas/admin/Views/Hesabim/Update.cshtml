@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/_Shareds/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+           
+            <div class="table-responsive">
+
+                <form action="/Admin/Hesabim/Update/@Model.Data.Id" method="post" enctype="multipart/form-data">
+
+
+                    <input type="text" name="NameSurname" class="form-control" placeholder="Adı Soyadı" value="@Model.Data.NameSurname" /><br />
+                    <input type="text" name="Images" class="form-control" value="@Model.Data.Images" hidden/><br />
+
+                    <input type="text" name="Email" class="form-control" placeholder="Email" value="@Model.Data.Email" /><br />
+
+                    <input type="text" name="Password" class="form-control" placeholder="Şifre" value="@Model.Data.Password" /><br />
+
+                    <input type="file" name="images" class="form-control" /><br />
+
+                    <textarea type="text" name="CoverLetter" class="form-control" style="height:150px" placeholder="Kısa Açıklama">"@Model.Data.CoverLetter"</textarea><br />
+
+                    <textarea type="text" name="Information" class="form-control" style="height:150px" placeholder="Açıklama">"@Model.Data.Information" </textarea><br />
+
+
+
+                    <input type="text" name="Github" class="form-control" placeholder="Github" value="@Model.Data.Github" /><br />
+                    <input type="text" name="Linkedin" class="form-control" placeholder="Linkedin" value="@Model.Data.Linkedin" /><br />
+                    <input type="text" name="Instagram" class="form-control" placeholder="Instagram" value="@Model.Data.Instagram" /><br />
+                    <input type="text" name="Twitter" class="form-control" placeholder="Twitter" value="@Model.Data.Twitter" /><br />
+
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+
+                </form>
+
+                @if (ViewBag.Uyari != null)
+                {
+                    <div class="alert alert-warning">@ViewBag.Uyari</div>
+                }
+                @if (ViewBag.Olumlu != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Olumlu</div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

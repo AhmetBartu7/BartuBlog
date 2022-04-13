@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/_Shareds/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            
+           
+            <div class="table-responsive">
+
+                <form action="/Admin/Hesabim/Insert" method="post" enctype="multipart/form-data">
+
+
+                    <input type="text" name="NameSurname" class="form-control" placeholder="Adı Soyadı" /><br />
+                    <input type="text" name="Email" class="form-control" placeholder="Email" /><br />
+
+                    <input type="text" name="Password" class="form-control" placeholder="Şifre" /><br />
+
+                    <input type="file" name="images" class="form-control" /><br />
+
+                    <textarea type="text" name="CoverLetter" class="form-control" style="height:150px" placeholder="Kısa Açıklama"></textarea><br />
+
+                    <textarea type="text" name="Information" class="form-control" style="height:150px" placeholder="Açıklama"></textarea><br />
+
+
+
+                    <input type="text" name="Github" class="form-control" placeholder="Github" /><br />
+                    <input type="text" name="Linkedin" class="form-control" placeholder="Linkedin" /><br />
+                    <input type="text" name="Instagram" class="form-control" placeholder="Instagram" /><br />
+                    <input type="text" name="Twitter" class="form-control" placeholder="Twitter" /><br />
+
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+
+                </form>
+
+                @if (ViewBag.Uyari != null)
+                {
+                    <div class="alert alert-warning">@ViewBag.Uyari</div>
+                }
+                @if (ViewBag.Olumlu != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Olumlu</div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

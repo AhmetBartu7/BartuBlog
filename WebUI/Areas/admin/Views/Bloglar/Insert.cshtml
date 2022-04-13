@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/_Shareds/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title">Basic Table</h3>
+            <p class="text-muted">Add class <code>.table</code></p>
+            <div class="table-responsive">
+
+                <form action="/Admin/Bloglar/Insert" method="post" enctype="multipart/form-data">
+
+
+                    <input type="text" name="BlogName" class="form-control" placeholder="Blog Adı" /><br/>
+                    <input type="file" name="images" class="form-control" /><br />
+                    <textarea type="text" name="Explantion" class="form-control" style="height:350px" placeholder="Blog Açıklama"></textarea><br />
+
+                    <button type="submit" class="btn btn-primary">Bloğu Ekle</button>
+
+
+
+                </form>
+
+                @if (ViewBag.Uyari != null)
+                {
+                    <div class="alert alert-warning">@ViewBag.Uyari</div>
+                }
+                @if (ViewBag.Olumlu != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Olumlu</div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

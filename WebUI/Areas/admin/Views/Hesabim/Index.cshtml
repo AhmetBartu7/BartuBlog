@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/_Shareds/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title">Hesabım</h3> 
+
+            <div class="table-responsive">
+                <a href="/Admin/Hesabim/Insert" class="btn btn-primary">Yeni Ekle</a>
+                <table class="table text-nowrap">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">#</th>
+                            <th class="border-top-0">Adı Soyadı</th>
+                            <th class="border-top-0">Kısa Açıklama</th>
+                            <th class="border-top-0">İşlemleri</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Data)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.NameSurname</td>
+                                <td>@item.CoverLetter</td>
+                                <td>
+
+                                    <a href="/Admin/Hesabim/Update/@item.Id " class="btn btn-primary">Düzenle</a>
+                                    <a href="/Admin/Hesabim/Delete/@item.Id" class="btn btn-primary">Sil</a>
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+                @if (TempData["Mesaj"] != null)
+                {
+                    <div class="alert  alert-success">@TempData["Mesaj"]</div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
